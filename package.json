@@ -12,8 +12,10 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@nuxt/fonts": "0.14.0",
     "@nuxt/icon": "^2.2.1",
     "@nuxt/image": "2.0.0",
+    "@nuxtjs/color-mode": "4.0.1",
     "nuxt": "^4.4.2",
     "typed.js": "^3.0.0",
     "vue": "^3.5.31",

@@ -30,7 +30,7 @@ onUnmounted(() => {
 
 <template>
   <section class="min-h-[80vh] text-neutral-600 py-16">
-    <div class="w-full grid md:grid-cols-12 grid-flow-row gap-12 items-center">
+    <div class="w-full grid xl:grid-cols-12 grid-flow-row gap-12 items-center">
       <!-- Left Content Column -->
       <div class="space-y-8 md:col-span-7">
         <!-- Status Badge -->

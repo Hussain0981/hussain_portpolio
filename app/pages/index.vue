@@ -7,11 +7,7 @@
 
     <hr class=" border-gray-100">
 
-    <!-- projects -->
-    <h2 class="text-xl font-semibold">
-      My open source Projects
-    </h2>
-    <TheProjects />
+    <HomeTheProjects />
     <hr class=" border-gray-100">
   </div>
 </template>
