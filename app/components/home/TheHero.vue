@@ -1,6 +1,39 @@
 <script lang="ts" setup>
+import type { Container } from '@tsparticles/engine'
 import Typed from 'typed.js'
 import { onMounted, onUnmounted, ref } from 'vue'
+
+const options = {
+  fullScreen: {
+    enable: true,
+    zIndex: -1,
+  },
+  background: {
+    color: {
+      value: '#fff',
+    },
+  },
+  particles: {
+    color: {
+      value: '#000',
+    },
+    links: {
+      color: '#000',
+      enable: true,
+    },
+    move: {
+      enable: true,
+    },
+    number: {
+      value: 100,
+    },
+  },
+}
+function onLoad(container: Container) {
+  // Do something with the container
+  container.pause()
+  setTimeout(() => container.play(), 2000)
+}
 
 // Keep a reference to destroy the instance on unmount
 const typedInstance = ref<Typed | null>(null)
@@ -30,6 +63,12 @@ onUnmounted(() => {
 
 <template>
   <section class="min-h-[80vh] text-neutral-600 py-16">
+    <NuxtParticles
+      id="tsparticles"
+      :options="options"
+      @load="onLoad"
+    />
+
     <div class="w-full grid xl:grid-cols-12 grid-flow-row gap-12 items-center">
       <!-- Left Content Column -->
       <div class="space-y-8 md:col-span-7">
