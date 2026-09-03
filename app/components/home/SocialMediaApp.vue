@@ -37,7 +37,7 @@ const apps = [
       target="_blank"
       rel="noopener noreferrer"
       :aria-label="app.title"
-      class="group flex items-center justify-center w-12 h-12 rounded-full transition-colors duration-300 hover:bg-neutral-100"
+      class="group flex items-center justify-center w-12 h-12 rounded-full transition-colors duration-300 hover:bg-neutral-100 active:bg-green-200"
     >
       <Icon
         :name="app.icon"

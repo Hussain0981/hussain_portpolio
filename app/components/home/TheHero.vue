@@ -101,10 +101,6 @@ onUnmounted(() => {
             <div class="w-8 h-px bg-neutral-300 group-hover:w-12 group-hover:bg-neutral-900 transition-all duration-300" />
           </button>
         </div>
-
-        <div class="flex justify-center xl:justify-start">
-          <HomeSocialMediaApp />
-        </div>
       </div>
 
       <!-- Right Image/Logo Column -->
