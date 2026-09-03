@@ -1,18 +1,18 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-<<<<<<< HEAD
-  modules: [
-    '@nuxtjs/tailwindcss',
-    '@nuxt/eslint',
-    '@nuxt/image',
-  ],
-=======
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/eslint', '@nuxt/image', '@nuxt/icon'],
->>>>>>> b7a4a27b666e86a8805862d92766e7e36b8c6c6b
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/eslint', '@nuxt/image', '@nuxt/icon', '@nuxt/fonts', '@nuxtjs/color-mode', 'nuxt-particles'],
   devtools: { enabled: true },
   css: [
     '~/assets/css/main.css',
   ],
+  colorMode: {
+    preference: 'system',
+    fallback: 'light',
+    classPrefix: '',
+    classSuffix: '',
+    storage: 'localStorage',
+    storageKey: 'nuxt-color-mode',
+  },
   compatibilityDate: '2025-07-15',
   eslint: {
     config: {

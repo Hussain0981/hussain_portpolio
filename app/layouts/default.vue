@@ -1,9 +1,10 @@
 <template>
-<<<<<<< HEAD
-  <div>
-=======
-  <div class="w-full p-2 md:w-[677px] mx-auto md:p-4">
->>>>>>> b7a4a27b666e86a8805862d92766e7e36b8c6c6b
-    <slot />
+  <div class="overflow-hidden">
+    <header class="h-18 bg-gray-100 shadow-sm sticky top-0 z-40">
+      <NavigationTheHeader />
+    </header>
+    <main class="max-w-7xl mx-auto sm:px-3 lg:px-8 ">
+      <slot />
+    </main>
   </div>
 </template>
