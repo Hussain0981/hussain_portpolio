@@ -108,7 +108,6 @@ const stacks = ref<StackSection[]>([
         name: 'ORMs & ODMs',
         items: [
           { title: 'Drizzle ORM', icon: 'simple-icons:drizzle' },
-          { title: 'Prisma', icon: 'logos:prisma' },
           { title: 'Mongoose', icon: 'devicon:mongoose' },
         ],
       },

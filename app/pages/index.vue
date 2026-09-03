@@ -3,6 +3,10 @@
     <!-- home - TheHero.vue -->
     <HomeTheHero />
 
+    <div class="flex justify-center xl:justify-start">
+      <HomeSocialMediaApp />
+    </div>
+
     <HomeTheProjects />
     <hr class=" border-gray-100">
 
