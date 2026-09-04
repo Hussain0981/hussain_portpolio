@@ -1,11 +1,7 @@
 <template>
-  <div class="rounded-2xl  px-3 md:p-8 flex flex-col gap-5">
+  <div class="flex flex-col gap-3 md:gap-10 rounded-2xl  px-3 md:p-8">
     <!-- home - TheHero.vue -->
     <HomeTheHero />
-
-    <div class="flex justify-center xl:justify-start">
-      <HomeSocialMediaApp />
-    </div>
 
     <HomeTheProjects />
     <hr class=" border-gray-100">
