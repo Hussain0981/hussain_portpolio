@@ -8,30 +8,28 @@ const options = {
     enable: true,
     zIndex: -1,
   },
-  background: {
-    color: {
-      value: '#fff',
-    },
-  },
   particles: {
     color: {
-      value: '#000',
+      value: ['#3b82f6', '#6366f1', '#a855f7'],
     },
     links: {
-      color: '#000',
+      color: '#94a3b8',
       enable: true,
+      opacity: 0.3,
     },
     move: {
       enable: true,
+      speed: 1.5,
     },
     number: {
-      value: 100,
+      value: 60,
     },
   },
 }
+
 function onLoad(container: Container) {
   container.pause()
-  setTimeout(() => container.play(), 2000)
+  setTimeout(() => container.play(), 1000)
 }
 
 const typedInstance = ref<Typed | null>(null)
@@ -41,9 +39,9 @@ onMounted(() => {
     strings: [
       'Frontend Developer',
       'Backend Developer',
+      'Desktop Application Developer',
       'Full Stack Developer',
       'System Designer',
-      'Database Designer',
     ],
     typeSpeed: 50,
     backSpeed: 30,
@@ -60,66 +58,79 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <section class="min-h-[80vh] w-full overflow-hidden text-neutral-600 py-10 sm:py-16 px-4 sm:px-6 lg:px-8">
+  <section class="min-h-screen w-full flex flex-col justify-between px-4 sm:px-8 md:px-12 lg:px-16 py-6 transition-colors duration-300 dark:bg-gray-800 text-slate-900 dark:text-slate-100">
+    <!-- Particles Background -->
     <NuxtParticles
       id="tsparticles"
       :options="options"
       @load="onLoad"
     />
 
-    <div class="w-full max-w-7xl mx-auto grid grid-cols-1 xl:grid-cols-12 gap-10 sm:gap-12 items-center">
-      <!-- Left Content Column -->
-      <div class="space-y-6 sm:space-y-8 xl:col-span-7 text-center xl:text-left">
-        <!-- Status Badge -->
-        <div class="inline-flex items-center gap-2.5 bg-emerald-50 border border-emerald-200/60 text-emerald-800 py-1.5 px-3 text-xs font-mono rounded-full w-fit mx-auto xl:mx-0">
-          <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-          <span>Currently working Remote from Pakistan</span>
-        </div>
+    <!-- Top Badge / Status Header -->
+    <div class="w-full flex items-center justify-start pt-2 sm:pt-4 h-40 md:h-auto">
+      <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md shadow-xs">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500" />
+        </span>
+        <h3 class="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">
+          Currently working Remote from Pakistan
+        </h3>
+      </div>
+    </div>
 
-        <!-- Name Heading -->
-        <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.95] sm:leading-[0.9] tracking-tight text-neutral-800 uppercase break-words">
+    <!-- Main Hero Body Grid -->
+    <div class="flex-1 my-auto flex flex-col-reverse md:grid md:grid-cols-12 gap-8 items-center py-8">
+      <!-- Left Hero Content -->
+      <div class="md:col-span-7 flex flex-col items-center md:items-start text-center md:text-left space-y-6">
+        <!-- Title -->
+        <h1 class="text-5xl sm:text-7xl lg:text-8xl font-black leading-none tracking-tight uppercase text-slate-900 dark:text-white">
           Hussain <br>
-          <span class="text-gray-500 font-medium tracking-wide">Ullah</span>
+          <span class="font-semibold text-blue-600 dark:text-blue-400">Ullah</span>
         </h1>
 
-        <!-- Typed JS Dynamic Output -->
-        <div class="text-base sm:text-lg md:text-xl font-mono text-neutral-500 min-h-[32px] flex items-center justify-center xl:justify-start">
-          <span id="element" class="text-neutral-900 font-semibold" />
+        <!-- Typed JS Output Container -->
+        <div class="text-lg sm:text-xl md:text-2xl font-mono h-8 flex items-center justify-center md:justify-start text-slate-600 dark:text-slate-400">
+          <span
+            id="element"
+            class="font-semibold text-slate-800 dark:text-slate-200"
+          />
         </div>
 
-        <!-- Action Buttons -->
-        <div class="flex flex-wrap items-center justify-center xl:justify-start gap-4 sm:gap-6 pt-2">
-          <!-- Primary CTA -->
-          <button class="group relative px-6 sm:px-8 py-3 sm:py-4 bg-neutral-900 text-white font-bold uppercase text-xs tracking-widest rounded-full overflow-hidden shadow-sm hover:shadow-lg hover:shadow-neutral-200 hover:bg-neutral-800 transition-all duration-300">
-            <span class="relative z-10">Start a Project</span>
-            <div class="absolute inset-0 bg-gradient-to-r from-neutral-800 to-neutral-950 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <!-- Action Call Buttons -->
+        <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2 w-full sm:w-auto">
+          <button class="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-900 dark:bg-blue-600 hover:bg-slate-800 dark:hover:bg-blue-500 text-white font-semibold text-xs uppercase tracking-wider transition-all duration-200 shadow-md hover:shadow-lg active:scale-95">
+            Start a Project
           </button>
-
-          <!-- Secondary CTA -->
-          <button class="group flex items-center gap-3 text-neutral-400 hover:text-neutral-900 transition-colors duration-300">
-            <span class="text-xs font-bold uppercase tracking-widest">View Archives</span>
-            <div class="w-8 h-px bg-neutral-300 group-hover:w-12 group-hover:bg-neutral-900 transition-all duration-300" />
+          <button class="w-full sm:w-auto px-6 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900/50 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 font-semibold text-xs uppercase tracking-wider transition-all duration-200 active:scale-95">
+            Download CV
           </button>
         </div>
       </div>
 
-      <!-- Right Image/Logo Column -->
-      <div class="xl:col-span-5 flex justify-center xl:justify-end order-first xl:order-last">
-        <div class="w-full max-w-[220px] sm:max-w-[280px] md:max-w-[320px] xl:max-w-[360px] aspect-square bg-white border border-neutral-200 p-3 sm:p-4 rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300">
+      <!-- Right Logo / Avatar Container -->
+      <div class="md:col-span-5 flex justify-center items-center">
+        <div class="w-full max-w-[220px] sm:max-w-[260px] md:max-w-[300px] aspect-square rounded-3xl p-4 bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-xl backdrop-blur-md transition-transform duration-300 hover:scale-[1.02]">
           <img
-            class="h-full w-full object-contain rounded-2xl bg-neutral-50"
+            class="h-full w-full object-contain rounded-2xl bg-slate-50 dark:bg-slate-800/50 p-2"
             src="/hussain_logo.png"
             alt="Hussain Ullah Logo"
           >
         </div>
       </div>
     </div>
+
+    <!-- Bottom Navigation / Social Links -->
+    <div class="w-full flex items-center justify-center pb-2">
+      <HomeSocialMediaApp />
+    </div>
   </section>
 </template>
 
 <style scoped>
+/* Typed cursor styling without CSS variables */
 :deep(.typed-cursor) {
-  color: #171717;
+  color: #3b82f6;
   font-weight: 300;
 }
 </style>

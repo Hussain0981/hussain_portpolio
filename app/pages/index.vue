@@ -4,18 +4,18 @@
     <HomeTheHero />
 
     <HomeTheProjects />
-    <hr class=" border-gray-100">
+    <hr class=" border-gray-100 dark:border-gray-700">
 
     <HomeStack />
-    <hr class=" border-gray-100">
+    <hr class=" border-gray-100 dark:border-gray-700">
 
     <!-- home - TheTechStack.vue -->
     <HomeTheTechStack />
 
-    <hr class=" border-gray-100">
+    <hr class=" border-gray-100 dark:border-gray-700">
 
     <HomeContactForm />
-    <hr class=" border-gray-100">
+    <hr class=" border-gray-100 dark:border-gray-700">
 
     <HomeTheFooter />
   </div>

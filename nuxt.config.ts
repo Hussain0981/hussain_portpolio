@@ -6,12 +6,11 @@ export default defineNuxtConfig({
     '~/assets/css/main.css',
   ],
   colorMode: {
-    preference: 'system',
-    fallback: 'light',
-    classPrefix: '',
-    classSuffix: '',
-    storage: 'localStorage',
-    storageKey: 'nuxt-color-mode',
+    preference: 'system', // pehli visit par OS preference follow karega
+    fallback: 'light', // agar system preference detect na ho
+    dataValue: 'theme', // <html data-theme="dark"> generate karega (humare CSS variables se match)
+    classSuffix: '', // class-based fallback bhi clean rahega agar kahin use ho
+    storageKey: 'app-theme', // localStorage key
   },
   compatibilityDate: '2025-07-15',
   eslint: {

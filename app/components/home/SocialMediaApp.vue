@@ -26,10 +26,13 @@ const apps = [
     icon: 'simple-icons:instagram',
   },
 ]
+
+// Helper function to detect middle index dynamically
+const isMiddle = (index: number) => index === Math.floor(apps.length / 2)
 </script>
 
 <template>
-  <div class="flex items-center justify-center w-full gap-2">
+  <div class="flex items-center justify-center w-full gap-3 py-2">
     <NuxtLink
       v-for="(app, index) in apps"
       :key="index"
@@ -37,12 +40,20 @@ const apps = [
       target="_blank"
       rel="noopener noreferrer"
       :aria-label="app.title"
-      class="group flex items-center justify-center w-12 h-12 rounded-full transition-colors duration-300 hover:bg-neutral-100 active:bg-green-200"
+      class="group flex items-center justify-center rounded-full transition-all duration-300" :class="[
+        isMiddle(index)
+          ? 'w-14 h-14 bg-slate-600 dark:bg-slate-500 text-white hover:bg-slate-700 dark:hover:bg-slate-600 hover:scale-110 active:scale-95'
+          : 'w-11 h-11 bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-slate-100 hover:scale-105 active:scale-95',
+      ]"
     >
       <Icon
         :name="app.icon"
-        size="25"
-        class="text-neutral-500 transition-colors duration-300 group-hover:text-neutral-900"
+        :size="isMiddle(index) ? 28 : 22"
+        class="transition-colors duration-300" :class="[
+          isMiddle(index)
+            ? 'text-white'
+            : 'text-slate-500 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white',
+        ]"
       />
     </NuxtLink>
   </div>
