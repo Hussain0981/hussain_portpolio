@@ -1,0 +1,99 @@
+{
+  "hero_section": {
+    "current_status": "Available for work",
+    "first_name": "Hussain",
+    "last_name": "Ullah",
+    "skills": [
+      "Frontend Developer",
+      "Backend Developer",
+      "Desktop Application Developer",
+      "Full Stack Developer",
+      "System Designer"
+    ],
+    "buttons": {
+      "start_project": "Start a project",
+      "download_cv": "Download CV"
+    }
+  },
+  "projects": {
+    "title": "compatibilities",
+    "sub_title": "projects",
+    "desktop": {
+      "title": "Desktop Applications",
+      "data": [
+        {
+          "id": 1,
+          "title": "Pharmacy Management System",
+          "description": "A comprehensive desktop application for managing pharmacy operations, including inventory, sales, and customer management.",
+          "technologies": [
+            "Electron.js",
+            "Vue",
+            "SQL Server",
+            "Drizzle ORM",
+            "TypeScript",
+            "Tailwindcss"
+          ]
+        },
+        {
+          "id": 2,
+          "title": "HOS Management System",
+          "description": "An advanced hospital operating system designed to streamline healthcare workflows, patient records, and staff scheduling.",
+          "technologies": [
+            "Electron.js",
+            "Vue",
+            "SQL Server",
+            "Drizzle ORM",
+            "TypeScript",
+            "Tailwindcss"
+          ]
+        },
+        {
+          "id": 3,
+          "title": "GAME Management System",
+          "description": "A performance-optimized desktop platform for gaming zone assets tracking, tournament brackets, and real-time billing.",
+          "technologies": [
+            "Electron.js",
+            "Vue",
+            "SQL Server",
+            "TypeScript",
+            "Tailwindcss"
+          ]
+        }
+      ]
+    },
+    "web": {
+      "title": "Web Applications",
+      "data": [
+        {
+          "id": 4,
+          "title": "SaaS Analytics Platform",
+          "description": "A dynamic web application featuring real-time data analytics pipelines, interactive dashboards, and multi-tenant billing.",
+          "technologies": [
+            "Vue 3",
+            "Nuxt",
+            "Node.js",
+            "PostgreSQL",
+            "TypeScript",
+            "Tailwindcss"
+          ]
+        }
+      ]
+    },
+    "website": {
+      "title": "Websites & Portfolios",
+      "data": [
+        {
+          "id": 5,
+          "title": "E-Commerce Landing Page",
+          "description": "A high-converting, fully responsive landing page optimized for core web vitals and seamless user experience.",
+          "technologies": [
+            "Vue",
+            "Vite",
+            "Tailwindcss",
+            "GSAP Animation"
+          ]
+        }
+      ]
+    }
+  }
+}

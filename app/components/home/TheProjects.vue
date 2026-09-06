@@ -1,58 +1,76 @@
 <script lang="ts" setup>
-import { reactive } from 'vue'
+import { computed } from 'vue'
 
-const projects = reactive({
+const { t } = useI18n()
+
+// Static, non-translatable data (ids, tech stack, images).
+// Titles and descriptions come from the i18n locale files (en.json / fr.json / ar.json).
+const staticProjects = {
   desktop: {
-    title: 'Desktop Applications',
     data: [
       {
         id: 1,
-        title: 'Pharmacy Management System',
-        description: 'A comprehensive desktop application for managing pharmacy operations, including inventory, sales, and customer management.',
         technologies: ['Electron.js', 'Vue', 'SQL Server', 'Drizzle ORM', 'TypeScript', 'Tailwindcss'],
         image: '',
       },
       {
         id: 2,
-        title: 'HOS Management System',
-        description: 'An advanced hospital operating system designed to streamline healthcare workflows, patient records, and staff scheduling.',
         technologies: ['Electron.js', 'Vue', 'SQL Server', 'Drizzle ORM', 'TypeScript', 'Tailwindcss'],
         image: '',
       },
       {
         id: 3,
-        title: 'GAME Management System',
-        description: 'A performance-optimized desktop platform for gaming zone assets tracking, tournament brackets, and real-time billing.',
         technologies: ['Electron.js', 'Vue', 'SQL Server', 'TypeScript', 'Tailwindcss'],
         image: '',
       },
     ],
   },
   web: {
-    title: 'Web Applications',
     data: [
       {
         id: 4,
-        title: 'SaaS Analytics Platform',
-        description: 'A dynamic web application featuring real-time data analytics pipelines, interactive dashboards, and multi-tenant billing.',
         technologies: ['Vue 3', 'Nuxt', 'Node.js', 'PostgreSQL', 'TypeScript', 'Tailwindcss'],
         image: '',
       },
     ],
   },
   website: {
-    title: 'Websites & Portfolios',
     data: [
       {
         id: 5,
-        title: 'E-Commerce Landing Page',
-        description: 'A high-converting, fully responsive landing page optimized for core web vitals and seamless user experience.',
         technologies: ['Vue', 'Vite', 'Tailwindcss', 'GSAP Animation'],
         image: '',
       },
     ],
   },
-})
+}
+
+const projects = computed(() => ({
+  desktop: {
+    title: t('projects.desktop.title'),
+    data: staticProjects.desktop.data.map((item, idx) => ({
+      ...item,
+      title: t(`projects.desktop.data.${idx}.title`),
+      description: t(`projects.desktop.data.${idx}.description`),
+    })),
+  },
+  web: {
+    title: t('projects.web.title'),
+    data: staticProjects.web.data.map((item, idx) => ({
+      ...item,
+      title: t(`projects.web.data.${idx}.title`),
+      description: t(`projects.web.data.${idx}.description`),
+    })),
+  },
+  website: {
+    title: t('projects.website.title'),
+    data: staticProjects.website.data.map((item, idx) => ({
+      ...item,
+      title: t(`projects.website.data.${idx}.title`),
+      description: t(`projects.website.data.${idx}.description`),
+    })),
+  },
+}))
 </script>
 
 <template>
@@ -61,12 +79,12 @@ const projects = reactive({
       <span
         class="text-xs font-mono uppercase tracking-[0.3em] block mb-3"
         style="color: var(--projects-label);"
-      >Capabilities</span>
+      >{{ $t('projects.title') }}</span>
       <h2
         class="text-3xl md:text-5xl font-bold tracking-tight uppercase"
         style="color: var(--projects-heading);"
       >
-        My Projects
+        {{ $t('projects.sub_title') }}
       </h2>
     </div>
 
@@ -122,7 +140,7 @@ const projects = reactive({
               <span
                 v-for="tech in item.technologies"
                 :key="tech"
-                class="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium border dark:border-gray-500 transition-colors duration-150 cursor-default"
+                class="tech-badge inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium border dark:border-gray-500 transition-colors duration-150 cursor-default"
               >
                 {{ tech }}
               </span>

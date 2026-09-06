@@ -1,0 +1,99 @@
+{
+  "hero_section": {
+    "current_status": "Disponible pour travailler",
+    "first_name": "Hussain",
+    "last_name": "Ullah",
+    "skills": [
+      "Développeur Frontend",
+      "Développeur Backend",
+      "Développeur d'Applications Desktop",
+      "Développeur Full Stack",
+      "Concepteur de Systèmes"
+    ],
+    "buttons": {
+      "start_project": "Lancer un projet",
+      "download_cv": "Télécharger le CV"
+    }
+  },
+  "projects": {
+    "title": "compatibilités",
+    "sub_title": "projets",
+    "desktop": {
+      "title": "Applications de bureau",
+      "data": [
+        {
+          "id": 1,
+          "title": "Système de gestion de pharmacie",
+          "description": "Une application de bureau complète pour gérer les opérations d'une pharmacie, y compris l'inventaire, les ventes et la gestion des clients.",
+          "technologies": [
+            "Electron.js",
+            "Vue",
+            "SQL Server",
+            "Drizzle ORM",
+            "TypeScript",
+            "Tailwindcss"
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Système de gestion HOS",
+          "description": "Un système d'exploitation hospitalier avancé conçu pour simplifier les flux de travail de santé, les dossiers des patients et la planification du personnel.",
+          "technologies": [
+            "Electron.js",
+            "Vue",
+            "SQL Server",
+            "Drizzle ORM",
+            "TypeScript",
+            "Tailwindcss"
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Système de gestion GAME",
+          "description": "Une plateforme de bureau optimisée pour les performances, dédiée au suivi des actifs d'une zone de jeu, aux tableaux de tournois et à la facturation en temps réel.",
+          "technologies": [
+            "Electron.js",
+            "Vue",
+            "SQL Server",
+            "TypeScript",
+            "Tailwindcss"
+          ]
+        }
+      ]
+    },
+    "web": {
+      "title": "Applications web",
+      "data": [
+        {
+          "id": 4,
+          "title": "Plateforme d'analyse SaaS",
+          "description": "Une application web dynamique dotée de pipelines d'analyse de données en temps réel, de tableaux de bord interactifs et d'une facturation multi-locataire.",
+          "technologies": [
+            "Vue 3",
+            "Nuxt",
+            "Node.js",
+            "PostgreSQL",
+            "TypeScript",
+            "Tailwindcss"
+          ]
+        }
+      ]
+    },
+    "website": {
+      "title": "Sites web & portfolios",
+      "data": [
+        {
+          "id": 5,
+          "title": "Page de destination E-Commerce",
+          "description": "Une page de destination hautement convertissante et entièrement responsive, optimisée pour les Core Web Vitals et une expérience utilisateur fluide.",
+          "technologies": [
+            "Vue",
+            "Vite",
+            "Tailwindcss",
+            "GSAP Animation"
+          ]
+        }
+      ]
+    }
+  }
+}

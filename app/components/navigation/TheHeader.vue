@@ -1,5 +1,8 @@
 <script lang="ts" setup>
-import { onMounted, onUnmounted, ref, watch } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
+
+const { locale, locales, setLocale } = useI18n()
+const localePath = useLocalePath()
 
 const isShow = ref(false)
 const langOpen = ref(false)
@@ -9,6 +12,7 @@ const isHeaderVisible = ref(true)
 
 let ticking = false
 
+// Prevent body scroll when mobile menu is open
 watch(isShow, (val) => {
   if (typeof window !== 'undefined') {
     if (val) {
@@ -20,6 +24,7 @@ watch(isShow, (val) => {
   }
 })
 
+// Header hide/show on scroll logic
 function updateHeaderVisibility() {
   const currentScrollY = Math.max(0, window.scrollY)
 
@@ -63,17 +68,36 @@ const navigations = [
   { name: 'Contact', path: '/contact' },
 ]
 
-const languages = [
+const languagesMetaData = [
   { code: 'en', label: 'English', flag: 'emojione:flag-for-united-states' },
   { code: 'ar', label: 'العربية', flag: 'emojione:flag-for-saudi-arabia' },
   { code: 'fr', label: 'Français', flag: 'emojione:flag-for-france' },
 ]
 
-const currentLang = ref(languages[0])
+// Merge i18n locales with flag & metadata
+const mergedLanguages = computed(() => {
+  return locales.value.map((lang) => {
+    const langCode = typeof lang === 'string' ? lang : lang.code
+    const meta = languagesMetaData.find(l => l.code === langCode)
+    return {
+      code: langCode,
+      label: meta?.label || langCode.toUpperCase(),
+      flag: meta?.flag || 'mynaui:globe',
+    }
+  })
+})
 
-function selectLanguage(lang: typeof languages[number]) {
-  currentLang.value = lang
+// Automatically tracks current locale reactive state
+const currentLang = computed(() => {
+  return (
+    mergedLanguages.value.find(l => l.code === locale.value)
+    || mergedLanguages.value[0]
+  )
+})
+
+function selectLanguage(langCode: string) {
   langOpen.value = false
+  setLocale(langCode)
 }
 </script>
 
@@ -86,7 +110,7 @@ function selectLanguage(lang: typeof languages[number]) {
       <div class="flex items-center justify-between h-16">
         <!-- Brand Logo -->
         <NuxtLink
-          to="/"
+          :to="localePath('/')"
           class="group flex items-center gap-1.5 font-bold tracking-tight text-slate-900 dark:text-white text-xl"
           @click="isShow = false"
         >
@@ -105,7 +129,7 @@ function selectLanguage(lang: typeof languages[number]) {
           <NuxtLink
             v-for="nav in navigations"
             :key="nav.path"
-            :to="nav.path"
+            :to="localePath(nav.path)"
             class="px-4 py-1.5 text-xs font-semibold rounded-full text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-800 transition-all duration-200"
             active-class="!bg-white dark:!bg-slate-800 !text-blue-600 dark:!text-blue-400 shadow-xs border border-slate-200/50 dark:border-slate-700/50"
           >
@@ -122,7 +146,7 @@ function selectLanguage(lang: typeof languages[number]) {
               class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 text-slate-700 dark:text-slate-300 text-xs font-medium hover:bg-slate-100 dark:hover:bg-slate-800 transition-all"
               @click="langOpen = !langOpen"
             >
-              <Icon name="mynaui:globe" size="18" class="text-slate-400 dark:text-white" />
+              <Icon name="mynaui:globe" size="18" class="text-slate-400 dark:text-slate-300" />
               <span class="uppercase font-bold text-[11px]">{{ currentLang.code }}</span>
               <Icon
                 name="lucide:chevron-down"
@@ -146,12 +170,12 @@ function selectLanguage(lang: typeof languages[number]) {
                 class="absolute right-0 mt-2 w-36 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-xl py-1.5 z-50 space-y-0.5 overflow-hidden"
               >
                 <button
-                  v-for="lang in languages"
+                  v-for="lang in mergedLanguages"
                   :key="lang.code"
                   type="button"
                   class="w-full flex items-center justify-between px-3 py-2 text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                   :class="{ 'text-blue-600 dark:text-blue-400 font-bold bg-blue-50/50 dark:bg-blue-950/30': currentLang.code === lang.code }"
-                  @click="selectLanguage(lang)"
+                  @click="selectLanguage(lang.code)"
                 >
                   <span class="flex items-center gap-2">
                     <Icon :name="lang.flag" size="16" />
@@ -229,7 +253,7 @@ function selectLanguage(lang: typeof languages[number]) {
           <NuxtLink
             v-for="nav in navigations"
             :key="nav.path"
-            :to="nav.path"
+            :to="localePath(nav.path)"
             class="flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all"
             active-class="!bg-blue-50 dark:!bg-blue-950/40 !text-blue-600 dark:!text-blue-400"
             @click="isShow = false"
@@ -244,14 +268,14 @@ function selectLanguage(lang: typeof languages[number]) {
           <!-- Language Buttons -->
           <div class="flex items-center gap-1.5">
             <button
-              v-for="lang in languages"
+              v-for="lang in mergedLanguages"
               :key="lang.code"
               type="button"
               class="px-2.5 py-1 rounded-lg text-xs font-bold border transition-all"
               :class="currentLang.code === lang.code
                 ? 'bg-slate-900 dark:bg-blue-600 text-white border-transparent'
                 : 'border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'"
-              @click="selectLanguage(lang)"
+              @click="selectLanguage(lang.code)"
             >
               {{ lang.code.toUpperCase() }}
             </button>

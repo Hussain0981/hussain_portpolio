@@ -1,0 +1,99 @@
+{
+  "hero_section": {
+    "current_status": "متاح للعمل",
+    "first_name": "حسين",
+    "last_name": "الله",
+    "skills": [
+      "مطور واجهات أمامية",
+      "مطور واجهات خلفية",
+      "مطور تطبيقات سطح المكتب",
+      "مطور مطور متكامل (Full Stack)",
+      "مصمم أنظمة"
+    ],
+    "buttons": {
+      "start_project": "ابدأ مشروعاً",
+      "download_cv": "تحميل السيرة الذاتية"
+    }
+  },
+  "projects": {
+    "title": "التوافقات",
+    "sub_title": "المشاريع",
+    "desktop": {
+      "title": "تطبيقات سطح المكتب",
+      "data": [
+        {
+          "id": 1,
+          "title": "نظام إدارة الصيدلية",
+          "description": "تطبيق سطح مكتب شامل لإدارة عمليات الصيدلية، بما في ذلك المخزون والمبيعات وإدارة العملاء.",
+          "technologies": [
+            "Electron.js",
+            "Vue",
+            "SQL Server",
+            "Drizzle ORM",
+            "TypeScript",
+            "Tailwindcss"
+          ]
+        },
+        {
+          "id": 2,
+          "title": "نظام إدارة HOS",
+          "description": "نظام تشغيل مستشفيات متقدم مصمم لتبسيط سير العمل في الرعاية الصحية وسجلات المرضى وجدولة الموظفين.",
+          "technologies": [
+            "Electron.js",
+            "Vue",
+            "SQL Server",
+            "Drizzle ORM",
+            "TypeScript",
+            "Tailwindcss"
+          ]
+        },
+        {
+          "id": 3,
+          "title": "نظام إدارة الألعاب GAME",
+          "description": "منصة سطح مكتب محسّنة الأداء لتتبع أصول منطقة الألعاب، وجداول البطولات، والفوترة في الوقت الفعلي.",
+          "technologies": [
+            "Electron.js",
+            "Vue",
+            "SQL Server",
+            "TypeScript",
+            "Tailwindcss"
+          ]
+        }
+      ]
+    },
+    "web": {
+      "title": "تطبيقات الويب",
+      "data": [
+        {
+          "id": 4,
+          "title": "منصة تحليلات SaaS",
+          "description": "تطبيق ويب ديناميكي يتميز بخطوط تحليل بيانات في الوقت الفعلي، ولوحات معلومات تفاعلية، وفوترة متعددة المستأجرين.",
+          "technologies": [
+            "Vue 3",
+            "Nuxt",
+            "Node.js",
+            "PostgreSQL",
+            "TypeScript",
+            "Tailwindcss"
+          ]
+        }
+      ]
+    },
+    "website": {
+      "title": "المواقع الإلكترونية والمعارض",
+      "data": [
+        {
+          "id": 5,
+          "title": "صفحة هبوط للتجارة الإلكترونية",
+          "description": "صفحة هبوط عالية التحويل ومتجاوبة بالكامل، محسّنة لمؤشرات الويب الأساسية وتجربة مستخدم سلسة.",
+          "technologies": [
+            "Vue",
+            "Vite",
+            "Tailwindcss",
+            "GSAP Animation"
+          ]
+        }
+      ]
+    }
+  }
+}
