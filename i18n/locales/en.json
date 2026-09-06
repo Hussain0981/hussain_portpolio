@@ -95,5 +95,125 @@
         }
       ]
     }
-  }
+  },
+  "techStack": {
+    "badge": "Technical Capabilities",
+    "heading": "Technology Stack & Architecture",
+    "subheading": "A structured breakdown of core languages, frameworks, runtime environments, and infrastructure tools.",
+    "technologiesLabel": "Technologies"
+  },
+  "stacks": {
+    "frontend": {
+      "title": "Frontend Development",
+      "description": "Crafting responsive, high-performance interfaces and visual experiences.",
+      "categories": [
+        {
+          "name": "Structure & Markup"
+        },
+        {
+          "name": "Styling & Design"
+        },
+        {
+          "name": "Logic & Languages"
+        },
+        {
+          "name": "Frameworks & Ecosystem"
+        },
+        {
+          "name": "Animation & 3D"
+        }
+      ]
+    },
+    "desktop": {
+      "title": "Desktop Applications",
+      "description": "Building cross-platform desktop software and native UI solutions.",
+      "categories": [
+        {
+          "name": "Frameworks & Runtimes"
+        }
+      ]
+    },
+    "backend": {
+      "title": "Backend Ecosystem",
+      "description": "Building robust microservices, serverless APIs, and application logic.",
+      "categories": [
+        {
+          "name": "Frameworks & Runtimes"
+        }
+      ]
+    },
+    "databases-orm": {
+      "title": "Databases & ORMs",
+      "description": "Structured storage solutions, query optimization, and data modeling tools.",
+      "categories": [
+        {
+          "name": "Relational & NoSQL"
+        },
+        {
+          "name": "ORMs & ODMs"
+        }
+      ]
+    },
+    "system-design": {
+      "title": "System Design & Architecture",
+      "description": "Scalable distributed systems, caching, messaging, and API architecture.",
+      "categories": [
+        {
+          "name": "Architecture & Concepts"
+        },
+        {
+          "name": "Caching & Queues"
+        },
+        {
+          "name": "DevOps & Containers"
+        }
+      ]
+    }
+  },
+  "motions": [
+    "Nuxt Modules",
+    "Express Middleware",
+    "JWT Authentication",
+    "REST APIs",
+    "GSAP Motion",
+    "PostgreSQL",
+    "Drizzle ORM",
+    "Mongoose ODM"
+  ],
+  "contact": {
+    "heading": "Contact Information",
+    "subheading": "Send us a message or find our location below.",
+    "form": {
+      "titleLabel": "Title",
+      "titlePlaceholder": "Enter subject or title",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Write your message here...",
+      "submit": "Send Message"
+    },
+    "callUs": "Call Us",
+    "address": "Address",
+    "addressText": "Dhakki, Charsadda KPK, Pakistan"
+  },
+  "footer": {
+    "author": "Hussain Ullah",
+    "copy_write": "All rights reserved."
+  },
+  "navigation": [
+    {
+      "name": "Home"
+    },
+    {
+      "name": "About"
+    },
+    {
+      "name": "Skills"
+    },
+    {
+      "name": "Projects"
+    },
+    {
+      "name": "Contact"
+
+    }
+  ]
 }

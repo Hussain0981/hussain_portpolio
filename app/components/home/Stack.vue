@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { Icon } from '@iconify/vue'
-import { ref } from 'vue'
+import { computed } from 'vue'
 
 interface StackItem {
   title: string
@@ -20,18 +19,16 @@ interface StackSection {
   categories: StackCategory[]
 }
 
-const stacks = ref<StackSection[]>([
+const { t } = useI18n()
+
+// Static, non-translatable data only (icons + tech names are the same in every language).
+// title / description / category.name come from the i18n locale files (en.json / fr.json / ar.json).
+const staticStacks: { key: string, categories: { items: StackItem[] }[] }[] = [
   {
     key: 'frontend',
-    title: 'Frontend Development',
-    description: 'Crafting responsive, high-performance interfaces and visual experiences.',
     categories: [
+      { items: [{ title: 'HTML5', icon: 'devicon:html5' }] },
       {
-        name: 'Structure & Markup',
-        items: [{ title: 'HTML5', icon: 'devicon:html5' }],
-      },
-      {
-        name: 'Styling & Design',
         items: [
           { title: 'CSS3', icon: 'devicon:css3' },
           { title: 'Tailwind CSS', icon: 'logos:tailwindcss-icon' },
@@ -39,21 +36,18 @@ const stacks = ref<StackSection[]>([
         ],
       },
       {
-        name: 'Logic & Languages',
         items: [
           { title: 'JavaScript', icon: 'logos:javascript' },
           { title: 'TypeScript', icon: 'logos:typescript-icon' },
         ],
       },
       {
-        name: 'Frameworks & Ecosystem',
         items: [
           { title: 'Vue.js', icon: 'logos:vue' },
           { title: 'Nuxt', icon: 'logos:nuxt-icon' },
         ],
       },
       {
-        name: 'Animation & 3D',
         items: [
           { title: 'GSAP', icon: 'logos:greensock-icon' },
           { title: 'Three.js', icon: 'logos:threejs' },
@@ -63,11 +57,8 @@ const stacks = ref<StackSection[]>([
   },
   {
     key: 'desktop',
-    title: 'Desktop Applications',
-    description: 'Building cross-platform desktop software and native UI solutions.',
     categories: [
       {
-        name: 'Frameworks & Runtimes',
         items: [
           { title: 'JavaFX', icon: 'logos:java' },
           { title: 'Electron.js', icon: 'logos:electron' },
@@ -77,11 +68,8 @@ const stacks = ref<StackSection[]>([
   },
   {
     key: 'backend',
-    title: 'Backend Ecosystem',
-    description: 'Building robust microservices, serverless APIs, and application logic.',
     categories: [
       {
-        name: 'Frameworks & Runtimes',
         items: [
           { title: 'Node.js', icon: 'logos:nodejs-icon' },
           { title: 'Express.js', icon: 'devicon:express' },
@@ -94,11 +82,8 @@ const stacks = ref<StackSection[]>([
   },
   {
     key: 'databases-orm',
-    title: 'Databases & ORMs',
-    description: 'Structured storage solutions, query optimization, and data modeling tools.',
     categories: [
       {
-        name: 'Relational & NoSQL',
         items: [
           { title: 'MySQL', icon: 'logos:mysql-icon' },
           { title: 'PostgreSQL', icon: 'logos:postgresql' },
@@ -106,7 +91,6 @@ const stacks = ref<StackSection[]>([
         ],
       },
       {
-        name: 'ORMs & ODMs',
         items: [
           { title: 'Drizzle ORM', icon: 'simple-icons:drizzle' },
           { title: 'Mongoose', icon: 'devicon:mongoose' },
@@ -116,11 +100,8 @@ const stacks = ref<StackSection[]>([
   },
   {
     key: 'system-design',
-    title: 'System Design & Architecture',
-    description: 'Scalable distributed systems, caching, messaging, and API architecture.',
     categories: [
       {
-        name: 'Architecture & Concepts',
         items: [
           { title: 'Microservices', icon: 'carbon:microservices-1' },
           { title: 'RESTful APIs', icon: 'dashicons:rest-api' },
@@ -129,7 +110,6 @@ const stacks = ref<StackSection[]>([
         ],
       },
       {
-        name: 'Caching & Queues',
         items: [
           { title: 'Redis', icon: 'logos:redis' },
           { title: 'Apache Kafka', icon: 'logos:kafka-icon' },
@@ -137,7 +117,6 @@ const stacks = ref<StackSection[]>([
         ],
       },
       {
-        name: 'DevOps & Containers',
         items: [
           { title: 'Docker', icon: 'logos:docker-icon' },
           { title: 'Kubernetes', icon: 'logos:kubernetes' },
@@ -146,7 +125,20 @@ const stacks = ref<StackSection[]>([
       },
     ],
   },
-])
+]
+
+// Reactive + locale-aware: recomputes automatically whenever the active locale changes.
+const stacks = computed<StackSection[]>(() =>
+  staticStacks.map(section => ({
+    key: section.key,
+    title: t(`stacks.${section.key}.title`),
+    description: t(`stacks.${section.key}.description`),
+    categories: section.categories.map((category, idx) => ({
+      name: t(`stacks.${section.key}.categories.${idx}.name`),
+      items: category.items,
+    })),
+  })),
+)
 </script>
 
 <template>
@@ -154,13 +146,13 @@ const stacks = ref<StackSection[]>([
     <!-- Overall Section Heading -->
     <div class="border-b border-slate-200 dark:border-slate-800 pb-6">
       <span class="inline-block px-3 py-1 rounded-full bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-[11px] font-bold uppercase tracking-wider">
-        Technical Capabilities
+        {{ $t('techStack.badge') }}
       </span>
       <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight mt-3">
-        Technology Stack & Architecture
+        {{ $t('techStack.heading') }}
       </h1>
       <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1 max-w-2xl leading-relaxed">
-        A structured breakdown of core languages, frameworks, runtime environments, and infrastructure tools.
+        {{ $t('techStack.subheading') }}
       </p>
     </div>
 
@@ -185,7 +177,7 @@ const stacks = ref<StackSection[]>([
             </p>
           </div>
           <span class="self-start sm:self-auto text-[10px] sm:text-xs font-bold px-3 py-1 rounded-md bg-slate-100 dark:bg-slate-700/60 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-600 shrink-0">
-            {{ stack.categories.reduce((acc, cat) => acc + cat.items.length, 0) }} Technologies
+            {{ stack.categories.reduce((acc, cat) => acc + cat.items.length, 0) }} {{ $t('techStack.technologiesLabel') }}
           </span>
         </div>
 
@@ -213,7 +205,7 @@ const stacks = ref<StackSection[]>([
               >
                 <!-- Icon with adaptive sizing -->
                 <Icon
-                  :icon="item.icon"
+                  :name="item.icon"
                   class="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 text-slate-700 dark:text-slate-200 transition-transform group-hover/item:scale-110"
                 />
 

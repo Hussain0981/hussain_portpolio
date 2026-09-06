@@ -95,5 +95,114 @@
         }
       ]
     }
-  }
+  },
+  "stacks": {
+    "frontend": {
+      "title": "Développement Frontend",
+      "description": "Créer des interfaces réactives et hautement performantes ainsi que des expériences visuelles.",
+      "categories": [
+        {
+          "name": "Structure et balisage"
+        },
+        {
+          "name": "Style et design"
+        },
+        {
+          "name": "Logique et langages"
+        },
+        {
+          "name": "Frameworks et écosystème"
+        },
+        {
+          "name": "Animation et 3D"
+        }
+      ]
+    },
+    "desktop": {
+      "title": "Applications de bureau",
+      "description": "Créer des logiciels de bureau multiplateformes et des solutions d'interface utilisateur natives.",
+      "categories": [
+        {
+          "name": "Frameworks et environnements d'exécution"
+        }
+      ]
+    },
+    "backend": {
+      "title": "Écosystème backend",
+      "description": "Créer des microservices robustes, des API sans serveur et la logique applicative.",
+      "categories": [
+        {
+          "name": "Frameworks et environnements d'exécution"
+        }
+      ]
+    },
+    "databases-orm": {
+      "title": "Bases de données et ORM",
+      "description": "Solutions de stockage structuré, optimisation des requêtes et outils de modélisation des données.",
+      "categories": [
+        {
+          "name": "Relationnel et NoSQL"
+        },
+        {
+          "name": "ORM et ODM"
+        }
+      ]
+    },
+    "system-design": {
+      "title": "Conception de systèmes et architecture",
+      "description": "Systèmes distribués évolutifs, mise en cache, messagerie et architecture d'API.",
+      "categories": [
+        {
+          "name": "Architecture et concepts"
+        },
+        {
+          "name": "Mise en cache et files d'attente"
+        },
+        {
+          "name": "DevOps et conteneurs"
+        }
+      ]
+    }
+  },
+  "techStack": {
+    "badge": "Compétences techniques",
+    "heading": "Pile technologique et architecture",
+    "subheading": "Une répartition structurée des langages, frameworks, environnements d'exécution et outils d'infrastructure essentiels.",
+    "technologiesLabel": "Technologies"
+  },
+  "motions": [
+    "Modules Nuxt",
+    "Middleware Express",
+    "Authentification JWT",
+    "API REST",
+    "Animation GSAP",
+    "PostgreSQL",
+    "Drizzle ORM",
+    "Mongoose ODM"
+  ],
+  "contact": {
+    "heading": "Informations de contact",
+    "subheading": "Envoyez-nous un message ou retrouvez notre emplacement ci-dessous.",
+    "form": {
+      "titleLabel": "Titre",
+      "titlePlaceholder": "Entrez le sujet ou le titre",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Écrivez votre message ici...",
+      "submit": "Envoyer le message"
+    },
+    "callUs": "Appelez-nous",
+    "address": "Adresse",
+    "addressText": "Dhakki, Charsadda KPK, Pakistan"
+  },
+  "footer": {
+    "author": "Hussain Ullah",
+    "copy_write": "Tous droits réservés."
+  },
+  "navigation": [
+    { "name": "Accueil" },
+    { "name": "À propos" },
+    { "name": "Compétences" },
+    { "name": "Projets" },
+    { "name": "Contact" }
+  ]
 }

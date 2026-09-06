@@ -2,8 +2,10 @@
 import { Icon } from '@iconify/vue'
 import { ref } from 'vue'
 
+const { t } = useI18n()
+
 const currentYear = new Date().getFullYear()
-const authorName = ref('Hussain Ullah')
+const authorName = t('footer.author')
 </script>
 
 <template>
@@ -27,7 +29,7 @@ const authorName = ref('Hussain Ullah')
 
         <span class="text-slate-300 dark:text-slate-700 hidden sm:inline">•</span>
         <span class="text-slate-500 dark:text-slate-400 hidden sm:inline">
-          All rights reserved.
+          {{ t('footer.copy_write') }}
         </span>
       </div>
 

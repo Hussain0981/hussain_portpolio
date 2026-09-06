@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 
-const { locale, locales, setLocale } = useI18n()
+const { locale, locales, setLocale, tm, rt } = useI18n()
 const localePath = useLocalePath()
 
 const isShow = ref(false)
@@ -60,14 +60,27 @@ onUnmounted(() => {
   }
 })
 
+interface NavBar {
+  name: string
+  path?: string
+}
 const navigations = [
-  { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
-  { name: 'Skills', path: '/skills' },
-  { name: 'Projects', path: '/projects' },
-  { name: 'Contact', path: '/contact' },
+  { path: '/' },
+  { path: '/about' },
+  { path: '/skills' },
+  { path: '/projects' },
+  { path: '/contact' },
 ]
 
+const navBar = computed<NavBar[]>(() => {
+  const raw = tm('navigation') as NavBar[]
+  const raw2 = Array.isArray(raw) ? raw.map(item => ({ name: rt(item.name) })) : []
+
+  return raw2.map((item, index) => ({
+    ...item,
+    path: navigations[index]?.path ?? '/',
+  }))
+})
 const languagesMetaData = [
   { code: 'en', label: 'English', flag: 'emojione:flag-for-united-states' },
   { code: 'ar', label: 'العربية', flag: 'emojione:flag-for-saudi-arabia' },
@@ -127,7 +140,7 @@ function selectLanguage(langCode: string) {
           class="hidden md:flex items-center gap-1 bg-slate-100/60 dark:bg-slate-900/60 p-1.5 rounded-full border border-slate-200/50 dark:border-slate-800/50"
         >
           <NuxtLink
-            v-for="nav in navigations"
+            v-for="nav in navBar"
             :key="nav.path"
             :to="localePath(nav.path)"
             class="px-4 py-1.5 text-xs font-semibold rounded-full text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-800 transition-all duration-200"
@@ -167,7 +180,7 @@ function selectLanguage(langCode: string) {
             >
               <div
                 v-if="langOpen"
-                class="absolute right-0 mt-2 w-36 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-xl py-1.5 z-50 space-y-0.5 overflow-hidden"
+                class="absolute right-0 w-36 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-xl py-1.5 z-50 space-y-0.5 overflow-hidden"
               >
                 <button
                   v-for="lang in mergedLanguages"
@@ -246,12 +259,12 @@ function selectLanguage(langCode: string) {
     >
       <div
         v-if="isShow"
-        class="relative z-50 md:hidden border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl px-4 pt-3 pb-6 space-y-4 max-h-[calc(100vh-4rem)] overflow-y-auto"
+        class="relative z-50 md:hidden border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl px-4 pb-6 space-y-4 max-h-[calc(100vh-4rem)] overflow-y-auto"
       >
         <!-- Mobile Navigation Links -->
         <div class="space-y-1">
           <NuxtLink
-            v-for="nav in navigations"
+            v-for="nav in navBar"
             :key="nav.path"
             :to="localePath(nav.path)"
             class="flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all"

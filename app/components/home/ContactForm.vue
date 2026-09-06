@@ -17,10 +17,10 @@ function handleSubmit() {
       <div id="info" class="space-y-6">
         <div>
           <h2 class="text-xl font-bold text-slate-800 dark:text-slate-100 tracking-tight">
-            Contact Information
+            {{ $t('contact.heading') }}
           </h2>
           <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
-            Send us a message or find our location below.
+            {{ $t('contact.subheading') }}
           </p>
         </div>
 
@@ -28,13 +28,13 @@ function handleSubmit() {
           <!-- Title Input -->
           <div class="flex flex-col gap-1.5">
             <label for="title" class="text-xs font-semibold text-slate-700 dark:text-slate-300 tracking-wide">
-              Title
+              {{ $t('contact.form.titleLabel') }}
             </label>
             <input
               id="title"
               v-model="title"
               type="text"
-              placeholder="Enter subject or title"
+              :placeholder="$t('contact.form.titlePlaceholder')"
               class="w-full px-3.5 py-2.5 text-sm bg-slate-50/50 dark:bg-slate-700/50 text-slate-800 dark:text-slate-200 rounded-lg border border-slate-200 dark:border-slate-600 focus:bg-white dark:focus:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-blue-400/20 focus:border-blue-500 dark:focus:border-blue-400 transition-all placeholder:text-slate-400 dark:placeholder:text-slate-500"
             >
           </div>
@@ -42,14 +42,14 @@ function handleSubmit() {
           <!-- Message Textarea -->
           <div class="flex flex-col gap-1.5">
             <label for="message" class="text-xs font-semibold text-slate-700 dark:text-slate-300 tracking-wide">
-              Message
+              {{ $t('contact.form.messageLabel') }}
             </label>
             <textarea
               id="message"
               v-model="message"
               name="message"
               rows="4"
-              placeholder="Write your message here..."
+              :placeholder="$t('contact.form.messagePlaceholder')"
               class="w-full px-3.5 py-2.5 text-sm bg-slate-50/50 dark:bg-slate-700/50 text-slate-800 dark:text-slate-200 rounded-lg border border-slate-200 dark:border-slate-600 focus:bg-white dark:focus:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-blue-400/20 focus:border-blue-500 dark:focus:border-blue-400 transition-all placeholder:text-slate-400 dark:placeholder:text-slate-500 resize-none"
             />
           </div>
@@ -58,7 +58,7 @@ function handleSubmit() {
             type="submit"
             class="w-full py-2.5 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 dark:hover:bg-white text-white dark:text-slate-900 font-medium text-sm rounded-lg transition-colors shadow-sm"
           >
-            Send Message
+            {{ $t('contact.form.submit') }}
           </button>
         </form>
 
@@ -73,8 +73,8 @@ function handleSubmit() {
               <Icon icon="ph:phone-duotone" class="w-4 h-4 text-blue-500" />
             </div>
             <div>
-              <span class="block text-[11px] font-semibold text-slate-400 dark:text-slate-400 uppercase tracking-wider">Call Us</span>
-              <a href="tel:+923275609507" class="text-xs font-semibold text-slate-800 dark:text-slate-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <span class="block text-[11px] font-semibold text-slate-400 dark:text-slate-400 uppercase tracking-wider">{{ $t('contact.callUs') }}</span>
+              <a href="tel:+923275609507" dir="ltr" class="inline-block text-xs font-semibold text-slate-800 dark:text-slate-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                 +92 327 5609507
               </a>
             </div>
@@ -86,9 +86,9 @@ function handleSubmit() {
               <Icon icon="ph:map-pin-duotone" class="w-4 h-4 text-blue-500" />
             </div>
             <div>
-              <span class="block text-[11px] font-semibold text-slate-400 dark:text-slate-400 uppercase tracking-wider">Address</span>
+              <span class="block text-[11px] font-semibold text-slate-400 dark:text-slate-400 uppercase tracking-wider">{{ $t('contact.address') }}</span>
               <address class="text-xs font-medium text-slate-700 dark:text-slate-100 not-italic leading-relaxed">
-                Dhakki, Charsadda KPK, Pakistan
+                {{ $t('contact.addressText') }}
               </address>
             </div>
           </div>
