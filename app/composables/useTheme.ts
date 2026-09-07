@@ -7,11 +7,11 @@ export function useTheme() {
     const isDark = colorMode.value === 'dark'
     const newTheme = isDark ? 'light' : 'dark'
 
-    // Click position (optional circular reveal animation ke liye)
-    if (event) {
-      document.documentElement.style.setProperty('--x', `${event.clientX}px`)
-      document.documentElement.style.setProperty('--y', `${event.clientY}px`)
-    }
+    // Click position set karein (circular reveal ka center)
+    const x = event?.clientX ?? window.innerWidth / 2
+    const y = event?.clientY ?? window.innerHeight / 2
+    document.documentElement.style.setProperty('--x', `${x}px`)
+    document.documentElement.style.setProperty('--y', `${y}px`)
 
     if (!document.startViewTransition) {
       colorMode.preference = newTheme
@@ -21,9 +21,8 @@ export function useTheme() {
 
     document.startViewTransition(() => {
       colorMode.preference = newTheme
+      localStorage.setItem(STORAGE_KEY, newTheme)
     })
-
-    localStorage.setItem(STORAGE_KEY, newTheme)
   }
 
   onMounted(() => {
