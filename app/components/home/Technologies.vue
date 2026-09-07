@@ -32,7 +32,6 @@ const staticStacks: { key: string, categories: { items: StackItem[] }[] }[] = [
         items: [
           { title: 'CSS3', icon: 'devicon:css3' },
           { title: 'Tailwind CSS', icon: 'logos:tailwindcss-icon' },
-          { title: 'UnoCSS', icon: 'vscode-icons:file-type-unocss' },
         ],
       },
       {
@@ -73,9 +72,7 @@ const staticStacks: { key: string, categories: { items: StackItem[] }[] }[] = [
         items: [
           { title: 'Node.js', icon: 'logos:nodejs-icon' },
           { title: 'Express.js', icon: 'devicon:express' },
-          { title: 'Java', icon: 'logos:java' },
           { title: 'Spring Boot', icon: 'logos:spring-icon' },
-          { title: 'Nitro', icon: 'unjs:nitro' },
         ],
       },
     ],
