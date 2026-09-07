@@ -264,17 +264,16 @@ function selectLanguage(langCode: string) {
       >
         <!-- Mobile Navigation Links -->
         <div class="space-y-1">
-          <NuxtLink
+          <button
             v-for="nav in navBar"
             :key="nav.path"
-            :to="localePath(nav.path)"
             class="flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all"
             active-class="!bg-blue-50 dark:!bg-blue-950/40 !text-blue-600 dark:!text-blue-400"
-            @click="isShow = false"
+            @click="goToPage(`${nav.path}`);isShow = false "
           >
             <span>{{ nav.name }}</span>
             <Icon name="lucide:chevron-right" size="16" class="opacity-40" />
-          </NuxtLink>
+          </button>
         </div>
 
         <!-- Mobile Drawer Footer Actions -->
