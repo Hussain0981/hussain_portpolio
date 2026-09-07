@@ -142,9 +142,9 @@ const stacks = computed<StackSection[]>(() =>
 </script>
 
 <template>
-  <div class="max-w-6xl mx-auto px-4 py-6 sm:px-6 sm:py-8 md:p-8 space-y-8 sm:space-y-10 bg-slate-50 dark:bg-slate-900 font-sans transition-colors duration-300">
+  <div class="max-w-6xl mx-auto py-6 sm:py-8 md:p-8 space-y-8 sm:space-y-10 md:bg-slate-50 dark:bg-slate-900 font-sans transition-colors duration-300">
     <!-- Overall Section Heading -->
-    <div data-aos="fade-up" class="border-b border-slate-200 dark:border-slate-800 pb-6">
+    <div data-aos="fade-up" class=" px-2 border-b border-slate-200 dark:border-slate-800 pb-6">
       <span class="inline-block px-3 py-1 rounded-full bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-[11px] font-bold uppercase tracking-wider">
         {{ $t('techStack.badge') }}
       </span>
@@ -187,7 +187,7 @@ const stacks = computed<StackSection[]>(() =>
             v-for="(category, index) in stack.categories"
             :key="category.name"
             data-aos="fade-up"
-            :data-aos-delay="index * 100"
+            :data-aos-delay="index * 50"
             class="space-y-3"
           >
             <!-- Category Label -->
@@ -208,7 +208,7 @@ const stacks = computed<StackSection[]>(() =>
                 <!-- Icon with adaptive sizing -->
                 <Icon
                   :name="item.icon"
-                  class="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 text-slate-700 dark:text-slate-200 transition-transform group-hover/item:scale-110"
+                  class="w-12 h-12 sm:w-8 sm:h-8 md:w-9 md:h-9 text-slate-700 dark:text-slate-200 transition-transform group-hover/item:scale-110"
                 />
 
                 <!-- Tooltip on hover -->

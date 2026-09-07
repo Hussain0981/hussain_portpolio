@@ -1,46 +1,42 @@
-import { onMounted, ref, watch } from 'vue'
-
-// Yahan par jitne bhi themes chahiye add kar sakte hain
-export const THEMES = ['light', 'dark'] as const
-export type Theme = typeof THEMES[number]
-
-const STORAGE_KEY = 'app-theme'
-
+// composables/useTheme.ts
 export function useTheme() {
-  const theme = ref<Theme>('light')
+  const colorMode = useColorMode()
+  const STORAGE_KEY = 'nuxt-theme'
 
-  function applyTheme(value: Theme) {
-    document.documentElement.setAttribute('data-theme', value)
-  }
+  function toggleDark(event?: MouseEvent) {
+    const isDark = colorMode.value === 'dark'
+    const newTheme = isDark ? 'light' : 'dark'
 
-  function setTheme(value: Theme) {
-    theme.value = value
+    // Click position (optional circular reveal animation ke liye)
+    if (event) {
+      document.documentElement.style.setProperty('--x', `${event.clientX}px`)
+      document.documentElement.style.setProperty('--y', `${event.clientY}px`)
+    }
+
+    if (!document.startViewTransition) {
+      colorMode.preference = newTheme
+      localStorage.setItem(STORAGE_KEY, newTheme)
+      return
+    }
+
+    document.startViewTransition(() => {
+      colorMode.preference = newTheme
+    })
+
+    localStorage.setItem(STORAGE_KEY, newTheme)
   }
 
   onMounted(() => {
-    const saved = localStorage.getItem(STORAGE_KEY) as Theme | null
+    const saved = localStorage.getItem(STORAGE_KEY)
 
-    if (saved && THEMES.includes(saved)) {
-      theme.value = saved
+    if (saved) {
+      colorMode.preference = saved
     }
     else {
-      // Pehli visit par system preference follow karein (light/dark)
-      theme.value = window.matchMedia('(prefers-color-scheme: dark)').matches
-        ? 'dark'
-        : 'light'
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+      colorMode.preference = prefersDark ? 'dark' : 'light'
     }
-
-    applyTheme(theme.value)
   })
 
-  watch(theme, (value) => {
-    applyTheme(value)
-    localStorage.setItem(STORAGE_KEY, value)
-  })
-
-  return {
-    theme,
-    setTheme,
-    themes: THEMES,
-  }
+  return { toggleDark, colorMode }
 }
