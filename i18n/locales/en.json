@@ -205,15 +205,47 @@
     {
       "name": "About"
     },
-    {
-      "name": "Skills"
-    },
+
     {
       "name": "Projects"
+    },
+    {
+      "name": "Tech Stack"
     },
     {
       "name": "Contact"
 
     }
-  ]
+  ],
+  "about": {
+    "sub_title": "Since July 2024",
+    "title": "About Me",
+    "paragraphs": [
+      "I turn business ideas into fast, reliable software that users love.",
+      "I’m a Full-Stack Developer dedicated to helping clients build modern web applications that don’t just look great—they deliver real results. Whether you need a lightning-fast web app or a scalable backend to power your growth, I take care of the entire development process from day one.",
+      "My goal is simple: write clean, high-performing code that keeps your business running smoothly. I build software that is easy to maintain, quick to update, and designed to grow alongside your brand."
+    ],
+    "benefits": [
+      "High Performance",
+      "Distributed Systems",
+      "Clean UI/UX"
+    ],
+    "cards": [
+      {
+        "title": "Frontend & UI",
+        "technology": "Vue.js & Nuxt 3",
+        "description": "Modern client-side interfaces, SSR/SSG rendering, reactive architectures, and accessible components."
+      },
+      {
+        "title": "Backend & Services",
+        "technology": "Node.js, Express & Spring Boot",
+        "description": "RESTful APIs, microservices, and robust Java server/desktop apps built with enterprise patterns."
+      },
+      {
+        "title": "System Design",
+        "technology": "Scalable Infrastructure",
+        "description": "Caching strategies, message queues, load balancing, and fault-tolerant architecture design."
+      }
+    ]
+  }
 }

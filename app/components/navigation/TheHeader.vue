@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
+import { goToPage } from '~/utils/links'
 
 const { locale, locales, setLocale, tm, rt } = useI18n()
 const localePath = useLocalePath()
@@ -65,11 +66,11 @@ interface NavBar {
   path?: string
 }
 const navigations = [
-  { path: '/' },
-  { path: '/about' },
-  { path: '/skills' },
-  { path: '/projects' },
-  { path: '/contact' },
+  { path: 'home' },
+  { path: 'about' },
+  { path: 'projects' },
+  { path: 'technologies' },
+  { path: 'contact' },
 ]
 
 const navBar = computed<NavBar[]>(() => {
@@ -78,7 +79,7 @@ const navBar = computed<NavBar[]>(() => {
 
   return raw2.map((item, index) => ({
     ...item,
-    path: navigations[index]?.path ?? '/',
+    path: navigations[index]?.path ?? '',
   }))
 })
 const languagesMetaData = [
@@ -123,7 +124,7 @@ function selectLanguage(langCode: string) {
       <div class="flex items-center justify-between h-16">
         <!-- Brand Logo -->
         <NuxtLink
-          :to="localePath('/')"
+          to="#home"
           class="group flex items-center gap-1.5 font-bold tracking-tight text-slate-900 dark:text-white text-xl"
           @click="isShow = false"
         >
@@ -139,15 +140,15 @@ function selectLanguage(langCode: string) {
         <nav
           class="hidden md:flex items-center gap-1 bg-slate-100/60 dark:bg-slate-900/60 p-1.5 rounded-full border border-slate-200/50 dark:border-slate-800/50"
         >
-          <NuxtLink
+          <button
             v-for="nav in navBar"
             :key="nav.path"
-            :to="localePath(nav.path)"
             class="px-4 py-1.5 text-xs font-semibold rounded-full text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-800 transition-all duration-200"
             active-class="!bg-white dark:!bg-slate-800 !text-blue-600 dark:!text-blue-400 shadow-xs border border-slate-200/50 dark:border-slate-700/50"
+            @click="goToPage(`${nav.path}`)"
           >
             {{ nav.name }}
-          </NuxtLink>
+          </button>
         </nav>
 
         <!-- Desktop Action Controls -->

@@ -58,3 +58,9 @@ const isMiddle = (index: number) => index === Math.floor(apps.length / 2)
     </NuxtLink>
   </div>
 </template>
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>

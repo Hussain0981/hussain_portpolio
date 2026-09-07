@@ -2,15 +2,20 @@
   <div class="flex flex-col gap-3 md:gap-10 rounded-2xl  px-3 md:p-8">
     <!-- home - TheHero.vue -->
     <HomeTheHero />
+    <hr class=" border-gray-100 dark:border-gray-700">
+
+    <!-- about -->
+    <HomeAboutView />
+    <hr class=" border-gray-100 dark:border-gray-700">
 
     <HomeTheProjects />
     <hr class=" border-gray-100 dark:border-gray-700">
 
-    <HomeStack />
+    <HomeTechnologies />
     <hr class=" border-gray-100 dark:border-gray-700">
 
     <!-- home - TheTechStack.vue -->
-    <HomeTheTechStack />
+    <HomeTheMurque />
 
     <hr class=" border-gray-100 dark:border-gray-700">
 

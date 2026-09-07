@@ -142,7 +142,7 @@ const stacks = computed<StackSection[]>(() =>
 </script>
 
 <template>
-  <div class="max-w-6xl mx-auto py-6 sm:py-8 md:p-8 space-y-8 sm:space-y-10 md:bg-slate-50 dark:bg-slate-900 font-sans transition-colors duration-300">
+  <div id="technologies" class="max-w-6xl mx-auto py-6 sm:py-8 md:p-8 space-y-8 sm:space-y-10 md:bg-slate-50 dark:bg-slate-900 font-sans transition-colors duration-300">
     <!-- Overall Section Heading -->
     <div data-aos="fade-up" class=" px-2 border-b border-slate-200 dark:border-slate-800 pb-6">
       <span class="inline-block px-3 py-1 rounded-full bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-[11px] font-bold uppercase tracking-wider">

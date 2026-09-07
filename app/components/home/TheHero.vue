@@ -46,7 +46,8 @@ onUnmounted(() => {
 
 <template>
   <section
-    class="min-h-screen w-full flex flex-col justify-between px-4 sm:px-8 md:px-12 lg:px-16 py-6 transition-colors duration-300 dark:bg-gray-800 text-slate-900 dark:text-slate-100"
+    id="home"
+    class="min-h-screen w-full flex flex-col justify-between px-4 sm:px-8 md:px-12 lg:px-0 py-6 transition-colors duration-300 dark:bg-gray-800 text-slate-900 dark:text-slate-100"
   >
     <!-- Particles Background -->
     <NuxtParticles id="tsparticles" :options="options" @load="onLoad" />
@@ -92,11 +93,15 @@ onUnmounted(() => {
           >
             {{ t('hero_section.buttons.start_project') }}
           </button>
-          <button
-            class="w-full sm:w-auto px-6 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900/50 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 font-semibold text-xs uppercase tracking-wider transition-all duration-200 active:scale-95"
+          <a
+            href="/resume.pdf"
+            download
+            class="inline-flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-slate-200 border-b border-gray-300 dark:border-gray-600 pb-1 hover:border-gray-800 dark:hover:border-slate-300 transition-colors"
           >
+            <Icon name="lucide:file-down" size="16" />
             {{ t('hero_section.buttons.download_cv') }}
-          </button>
+
+          </a>
         </div>
       </div>
 

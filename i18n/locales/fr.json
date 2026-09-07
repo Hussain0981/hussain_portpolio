@@ -199,10 +199,51 @@
     "copy_write": "Tous droits réservés."
   },
   "navigation": [
-    { "name": "Accueil" },
-    { "name": "À propos" },
-    { "name": "Compétences" },
-    { "name": "Projets" },
-    { "name": "Contact" }
-  ]
+    {
+      "name": "Accueil"
+    },
+    {
+      "name": "À propos"
+    },
+    {
+      "name": "Projets"
+    },
+    {
+      "name": "Technologies"
+    },
+    {
+      "name": "Contact"
+    }
+  ],
+  "about": {
+    "sub_title": "Depuis juillet 2024",
+    "title": "À propos de moi",
+    "paragraphs": [
+      "Je transforme les idées commerciales en logiciels rapides et fiables que les utilisateurs apprécient.",
+      "Je suis développeur Full-Stack et je me consacre à aider mes clients à créer des applications web modernes qui ne se contentent pas d'être belles — elles produisent de vrais résultats. Que vous ayez besoin d'une application web ultra-rapide ou d'un backend évolutif pour accompagner votre croissance, je prends en charge l'ensemble du processus de développement dès le premier jour.",
+      "Mon objectif est simple : écrire un code propre et performant qui permet à votre entreprise de fonctionner efficacement. Je crée des logiciels faciles à maintenir, rapides à mettre à jour et conçus pour évoluer avec votre marque."
+    ],
+    "benefits": [
+      "Haute performance",
+      "Systèmes distribués",
+      "UI/UX soignée"
+    ],
+    "cards": [
+      {
+        "title": "Frontend & UI",
+        "technology": "Vue.js & Nuxt 3",
+        "description": "Interfaces client modernes, rendu SSR/SSG, architectures réactives et composants accessibles."
+      },
+      {
+        "title": "Backend & Services",
+        "technology": "Node.js, Express & Spring Boot",
+        "description": "APIs RESTful, microservices et applications Java robustes pour serveurs et ordinateurs de bureau, conçues selon des modèles d'architecture d'entreprise."
+      },
+      {
+        "title": "Conception de systèmes",
+        "technology": "Infrastructure évolutive",
+        "description": "Stratégies de mise en cache, files de messages, équilibrage de charge et conception d'architectures tolérantes aux pannes."
+      }
+    ]
+  }
 }

@@ -74,7 +74,7 @@ const projects = computed(() => ({
 </script>
 
 <template>
-  <div class="dark:text-slate-100">
+  <div id="projects" class="dark:text-slate-100">
     <div data-aos="fade-up" class="mb-12 md:mb-20">
       <span
         class="text-xs font-mono uppercase tracking-[0.3em] block mb-3"
