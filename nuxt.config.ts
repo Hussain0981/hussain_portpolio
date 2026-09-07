@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     'nuxt-particles',
     '@nuxtjs/i18n',
+    'nuxt-aos',
   ],
   devtools: { enabled: true },
   app: {

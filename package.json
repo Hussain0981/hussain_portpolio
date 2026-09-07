@@ -18,6 +18,7 @@
     "@nuxtjs/color-mode": "4.0.1",
     "@nuxtjs/i18n": "^10.6.0",
     "nuxt": "^4.4.2",
+    "nuxt-aos": "^1.2.6",
     "typed.js": "^3.0.0",
     "vue": "^3.5.31",
     "vue-router": "^5.0.4"

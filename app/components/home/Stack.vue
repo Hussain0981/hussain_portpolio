@@ -144,7 +144,7 @@ const stacks = computed<StackSection[]>(() =>
 <template>
   <div class="max-w-6xl mx-auto px-4 py-6 sm:px-6 sm:py-8 md:p-8 space-y-8 sm:space-y-10 bg-slate-50 dark:bg-slate-900 font-sans transition-colors duration-300">
     <!-- Overall Section Heading -->
-    <div class="border-b border-slate-200 dark:border-slate-800 pb-6">
+    <div data-aos="fade-up" class="border-b border-slate-200 dark:border-slate-800 pb-6">
       <span class="inline-block px-3 py-1 rounded-full bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-[11px] font-bold uppercase tracking-wider">
         {{ $t('techStack.badge') }}
       </span>
@@ -167,7 +167,7 @@ const stacks = computed<StackSection[]>(() =>
         <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-sky-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
         <!-- Header Block -->
-        <div class="mb-6 pb-4 border-b border-slate-100 dark:border-slate-700/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div data-aos="fade-up" class="mb-6 pb-4 border-b border-slate-100 dark:border-slate-700/50 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <h2 class="text-lg sm:text-xl md:text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 flex items-center gap-2">
               {{ stack.title }}
@@ -184,8 +184,10 @@ const stacks = computed<StackSection[]>(() =>
         <!-- Categories & Tech Items -->
         <div class="space-y-6">
           <div
-            v-for="category in stack.categories"
+            v-for="(category, index) in stack.categories"
             :key="category.name"
+            data-aos="fade-up"
+            :data-aos-delay="index * 100"
             class="space-y-3"
           >
             <!-- Category Label -->
@@ -199,7 +201,7 @@ const stacks = computed<StackSection[]>(() =>
             <!-- Grid Items Container (Adaptive responsive sizing) -->
             <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2.5 sm:gap-3">
               <div
-                v-for="item in category.items"
+                v-for="(item) in category.items"
                 :key="item.title"
                 class="group/item relative flex flex-col items-center justify-center rounded-xl border border-slate-200/80 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-900/50 p-2.5 sm:p-3 aspect-square transition-all duration-200 hover:-translate-y-1 hover:bg-white dark:hover:bg-slate-800 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-md hover:shadow-blue-500/10 dark:hover:shadow-slate-900/50 cursor-pointer"
               >

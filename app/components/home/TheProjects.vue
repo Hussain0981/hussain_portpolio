@@ -75,7 +75,7 @@ const projects = computed(() => ({
 
 <template>
   <div class="dark:text-slate-100">
-    <div class="mb-12 md:mb-20">
+    <div data-aos="fade-up" class="mb-12 md:mb-20">
       <span
         class="text-xs font-mono uppercase tracking-[0.3em] block mb-3"
         style="color: var(--projects-label);"
@@ -88,7 +88,7 @@ const projects = computed(() => ({
       </h2>
     </div>
 
-    <div v-for="(project, idx) in projects" :key="idx" class="mb-12">
+    <div v-for="(project, idx) in projects" :key="idx" data-aos="fade-up" class="mb-12">
       <div class="relative flex items-center gap-4 mb-6">
         <h2
           class="text-xl font-bold tracking-wide uppercase px-4 py-1.5 rounded-full shadow-sm border"
@@ -102,8 +102,10 @@ const projects = computed(() => ({
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-hidden">
         <div
-          v-for="item in project.data"
+          v-for="(item, index) in project.data"
           :key="item.id"
+          data-aos="fade-up"
+          :data-aos-delay="index * 100"
           class="group flex flex-col justify-between border border-gray-200 dark:border-gray-700 dark:hover:border-gray-500 rounded-xl p-6 shadow-sm hover:shadow-md duration-300"
         >
           <div class="flex flex-col flex-1">
